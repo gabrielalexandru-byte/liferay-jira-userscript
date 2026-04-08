@@ -190,8 +190,8 @@
 
         // UNIQUE CLASS AND HEADING
         clone.classList.add('jira-filter-link-field');
-        const heading = clone.querySelector('h3');
-        if (heading) heading.textContent = 'Account Filter'; // Descriptive Title
+        const span = clone.querySelector('span');
+        if (span) span.textContent = 'Account Filter'; // Descriptive Title
 
         const contentContainer = clone.querySelector('[data-testid="issue-field-inline-edit-read-view-container.ui.container"]');
         if (contentContainer) contentContainer.innerHTML = '';
@@ -273,8 +273,8 @@
         }
         clone.classList.add('patcher-link-field');
 
-        const heading = clone.querySelector('h3');
-        if (heading) heading.textContent = 'Patcher Link';
+        const span = clone.querySelector('span');
+        if (span) span.textContent = 'Patcher Link';
 
         const contentContainer = clone.querySelector('[data-testid="issue-field-inline-edit-read-view-container.ui.container"]');
         if (contentContainer) contentContainer.innerHTML = '';
@@ -415,8 +415,8 @@
         clone.classList.add('customer-portal-link-field');
 
         // Update field heading
-        const heading = clone.querySelector('h3');
-        if (heading) heading.textContent = 'Customer Portal';
+        const span = clone.querySelector('span');
+        if (span) span.textContent = 'Customer Portal';
 
         // Get content container
         const contentContainer = clone.querySelector('[data-testid="issue-field-inline-edit-read-view-container.ui.container"]');
