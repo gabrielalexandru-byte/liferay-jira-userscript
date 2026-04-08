@@ -3,7 +3,7 @@
 // @author       Ally, Rita, Dmcisneros
 // @icon         https://www.liferay.com/o/classic-theme/images/favicon.ico
 // @namespace    https://liferay.atlassian.net/
-// @version      3.20
+// @version      3.21
 // @description  Jira statuses + Patcher, Account tickets and CP Link field + Internal Note highlight + Auto Expand CCC Info + colorize solution proposed + Internal Request Warning + Large File Attachment section
 // @match        https://liferay.atlassian.net/*
 // @match        https://liferay-sandbox-424.atlassian.net/*
@@ -548,7 +548,7 @@
       attachmentLinks.forEach(link => {
           const linkHref = link.href;
           const linkText = link.textContent.trim();
-          
+
           if (!link.dataset.attachmentLogged) {
               link.dataset.attachmentLogged = "true";
           }
@@ -557,7 +557,7 @@
           if (!listContainer.querySelector(`a[href="${linkHref}"]`)) {
               const listItem = document.createElement('li');
               listItem.style.display = "block";
-              
+
               const linkElement = document.createElement('a');
               linkElement.href = linkHref;
               linkElement.target = "_blank";
@@ -569,7 +569,7 @@
                   font-weight: 500;
                   line-height: 1.5;
               `;
-              
+
               listItem.appendChild(linkElement);
               listContainer.appendChild(listItem);
           }
@@ -578,7 +578,7 @@
 
 
      /*********** NEW FEATURE: ADD PARTNER ICON ***********/
-    
+
      // Cache to prevent repeated API calls per ticket
     const partnerCache = {
         issueKey: null,
@@ -916,7 +916,7 @@
     function stopEventPropagation(e) {
         e.stopImmediatePropagation();
     }
-    
+
     /*********** CUSTOM MENU ***********/
     function openCustomMenuConfigPopup() {
         if (document.querySelector(".jsm-custommenu-settings-popup")) return;
@@ -1016,8 +1016,8 @@
         clone.classList.add(newField.class);
 
         // Update field heading
-        const heading = clone.querySelector('h3');
-        if (heading) heading.textContent = newField.heading;
+        const span = clone.querySelector('span');
+        if (span) span.textContent = newField.heading;
 
         // Get content container
         const contentContainer = clone.querySelector('[data-testid="issue-field-inline-edit-read-view-container.ui.container"]');
@@ -1073,7 +1073,7 @@
 
         createPanelField({ newField, callbackFn })
     }
-    
+
     /*********** INITIAL RUN + OBSERVERS ***********/
     async function updateUI() {
         applyColors();
